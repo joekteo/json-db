@@ -1,0 +1,32 @@
+{
+  "name": "json-db",
+  "version": "0.1.0",
+  "description": "a simple JSON database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joekteo/json-db"
+  },
+  "author": "joekteo@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joekteo/json-db/issues"
+  },
+  "homepage": "https://github.com/joekteo/json-db",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "chai-http": "^1.0.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-simple-mocha": "^0.4.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "express": "^4.10.1",
+    "superagent-cli": "^1.0.0"
+  }
+}
