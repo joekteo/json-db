@@ -1,64 +1,35 @@
-// var chai = require('chai');
-// var chaihttp = require('chai-http');
-// chai.use(chaihttp);
+/*jshint node:true*/
+'use strict';
 
-// require('../../server');
+var chai = require('chai');
+var chaihttp = require('chai-http');
+chai.use(chaihttp);
 
-// var expect = chai.expect;
+require('../../server');
 
-// describe('basic notes crud', function() {
-//   var id;
-//   it('should be able to create a note', function(done) {
-//     chai.request('http://localhost:3000')
-//     .post('/api/notes')
-//     .send({noteBody: 'hello world'})
-//     .end(function(err, res) {
-//       expect(err).to.eql(null);
-//       expect(res.body.noteBody).to.eql('hello world');
-//       expect(res.body).to.have.property('_id');
-//       id = res.body._id;
-//       done();
-//     });
-//   });
+var expect = chai.expect;
 
-//   it('should be able to get an index', function(done) {
-//     chai.request('http://localhost:3000')
-//     .get('/api/notes')
-//     .end(function(err, res) {
-//       expect(err).to.eql(null);
-//       expect(Array.isArray(res.body)).to.be.true;
-//       done();
-//     });
-//   });
-
-//   it('should be able to get a single note', function(done) {
-//     chai.request('http://localhost:3000')
-//     .get('/api/notes/' + id)
-//     .end(function(err, res) {
-//       expect(err).to.eql(null);
-//       expect(res.body.noteBody).to.eql('hello world');
-//       done();
-//     });
-//   });
-
-//   it('should be able to update a note', function(done) {
-//     chai.request('http://localhost:3000')
-//     .put('/api/notes/' + id)
-//     .send({noteBody: 'new note body'})
-//     .end(function(err, res) {
-//       expect(err).to.eql(null);
-//       expect(res.body.noteBody).to.eql('new note body');
-//       done();
-//     });
-//   });
-
-//   it('should be able to destroy a note', function(done) {
-//     chai.request('http://localhost:3000')
-//     .delete('/api/notes/' + id)
-//     .end(function(err, res) {
-//       expect(err).to.eql(null);
-//       expect(res.body.msg).to.eql('success!');
-//       done();
-//     });
-//   });
-// });
+describe('Simple json database', function() {
+  it('should be able to create a new file', function(done) {
+    chai.request('http://localhost:3000')
+    .post('/new_fruit')
+    .send({
+      fruit: 'kiwi berry'
+    })
+    .end(function(err, res) {
+      expect(err).to.be.eql(null);
+      expect(res.body).to.be.eql({ fruit: 'kiwi berry' });
+      done();
+    });
+  });
+  it('should get response from request and post the object in the file', function(done) {
+    chai.request('http://localhost:3000')
+    .get('/new_fruit')
+    .end(function(err, res) {
+      console.log(res.body);
+      expect(err).to.be.eql(null);
+      expect(res.body).to.be.eql({ fruit: 'kiwi berry' });
+      done();
+    });
+  });
+});
