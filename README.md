@@ -1,5 +1,6 @@
 json-db
 =======
+<img src= 'https://travis-ci.org/joekteo/json-db.svg?branch=test'>
 
 Create a simple JSON database using express, create a simple JSON database with the following functionality:
 
